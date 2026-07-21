@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kopaseba — Mockup Beranda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream: '#FAF6EC',
+          creamdark: '#F1EAD9',
+          ink: '#1E2A24',
+          teal: { DEFAULT: '#0F4C3E', dark: '#0A362C', light: '#DDEBE5' },
+          terracotta: { DEFAULT: '#C1622F', dark: '#9C4C22', light: '#F3DCCB' },
+        },
+        fontFamily: {
+          serif: ['"Fraunces"', 'serif'],
+          sans: ['"Inter"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #FAF6EC; color: #1E2A24; }
+  .font-serif { font-family: 'Fraunces', serif; }
+  .wave-divider { line-height: 0; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-ink/10">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="#0F4C3E" stroke-width="1.5"/>
+        <path d="M20 10c-4 3-6 7-6 11a6 6 0 0012 0c0-4-2-8-6-11z" stroke="#C1622F" stroke-width="1.5" fill="none"/>
+        <path d="M20 21v9" stroke="#0F4C3E" stroke-width="1.5"/>
+      </svg>
+      <span class="font-serif text-xl font-semibold tracking-tight text-teal-dark">Kopaseba</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/70">
+      <a href="#tentang" class="hover:text-teal transition">Tentang</a>
+      <a href="#struktur" class="hover:text-teal transition">Struktur</a>
+      <a href="#usaha" class="hover:text-teal transition">Unit Usaha</a>
+      <a href="#keanggotaan" class="hover:text-teal transition">Keanggotaan</a>
+      <a href="#berita" class="hover:text-teal transition">Berita</a>
+      <a href="#kontak" class="hover:text-teal transition">Kontak</a>
+    </nav>
+    <a href="#keanggotaan" class="hidden sm:inline-block bg-teal text-cream text-sm font-medium px-5 py-2.5 rounded-full hover:bg-teal-dark transition">Gabung Jadi Anggota</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden">
+  <svg class="absolute -top-10 -right-24 opacity-[0.07] pointer-events-none" width="620" height="620" viewBox="0 0 200 200" fill="none">
+    <path d="M100 20c-25 18-38 44-38 68a38 38 0 0076 0c0-24-13-50-38-68z" stroke="#0F4C3E" stroke-width="1"/>
+    <path d="M100 20c25 18 38 44 38 68a38 38 0 01-76 0" stroke="#0F4C3E" stroke-width="1"/>
+    <path d="M100 88v70" stroke="#0F4C3E" stroke-width="1"/>
+    <circle cx="100" cy="100" r="95" stroke="#C1622F" stroke-width="0.5"/>
+  </svg>
+
+  <div class="max-w-6xl mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32 relative">
+    <div class="max-w-2xl">
+      <p class="text-terracotta font-semibold tracking-widest text-xs uppercase mb-5">Koperasi Paru Sejahtera Bahagia</p>
+      <h1 class="font-serif text-4xl md:text-6xl leading-[1.08] font-medium text-teal-dark">
+        Bernapas untuk sesama,<br> tumbuh bersama koperasi.
+      </h1>
+      <p class="mt-6 text-lg text-ink/70 leading-relaxed max-w-xl">
+        Wadah kesejahteraan ekonomi dan sosial bagi dokter spesialis paru se-Indonesia,
+        di bawah naungan Perhimpunan Dokter Paru Indonesia (PDPI). Berdiri atas asas
+        kekeluargaan sejak 2008.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="#keanggotaan" class="bg-terracotta text-cream px-7 py-3.5 rounded-full font-medium hover:bg-terracotta-dark transition">Cara Menjadi Anggota</a>
+        <a href="#tentang" class="border border-ink/20 px-7 py-3.5 rounded-full font-medium hover:border-teal hover:text-teal transition">Pelajari Kopaseba →</a>
+      </div>
+    </div>
+
+    <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-ink/10 pt-10">
+      <div>
+        <p class="font-serif text-3xl text-teal-dark">2008</p>
+        <p class="text-sm text-ink/60 mt-1">Tahun berdiri</p>
+      </div>
+      <div>
+        <p class="font-serif text-3xl text-teal-dark">34+</p>
+        <p class="text-sm text-ink/60 mt-1">Pengurus &amp; pengawas aktif</p>
+      </div>
+      <div>
+        <p class="font-serif text-3xl text-teal-dark">2024–27</p>
+        <p class="text-sm text-ink/60 mt-1">Periode kepengurusan berjalan</p>
+      </div>
+      <div>
+        <p class="font-serif text-3xl text-teal-dark">Badan hukum</p>
+        <p class="text-sm text-ink/60 mt-1">Terdaftar resmi Kemenkumham RI</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang" class="bg-teal-dark text-cream">
+  <div class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-5 gap-12 items-start">
+    <div class="md:col-span-2">
+      <p class="text-terracotta font-semibold tracking-widest text-xs uppercase mb-4">Tentang Kopaseba</p>
+      <h2 class="font-serif text-3xl md:text-4xl leading-tight font-medium">Koperasi serba usaha, berlandaskan kekeluargaan.</h2>
+    </div>
+    <div class="md:col-span-3 space-y-6 text-cream/80 leading-relaxed">
+      <p>
+        KOPASEBA berlandaskan Pancasila dan UUD 1945, dengan azas kekeluargaan sebagai
+        fondasi utama. Seluruh anggota adalah dokter spesialis paru terdaftar PDPI —
+        koperasi ini dikelola secara demokratis, dengan pembagian Sisa Hasil Usaha
+        yang adil sebanding dengan jasa masing-masing anggota.
+      </p>
+      <p>
+        Sebagai koperasi serba usaha di bidang kesehatan, Kopaseba menjalankan
+        usaha perancangan, produksi, dan distribusi obat serta produk kesehatan,
+        pengoperasian fasilitas layanan kesehatan, hingga kerja sama strategis
+        dengan pemerintah dan mitra swasta — seluruhnya demi kesejahteraan anggota
+        dan keberlangsungan organisasi profesi PDPI.
+      </p>
+      <a href="#" class="inline-block text-terracotta font-medium mt-2 hover:underline">Baca Anggaran Dasar &amp; Rumah Tangga selengkapnya →</a>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT USAHA -->
+<section id="usaha" class="max-w-6xl mx-auto px-6 py-24">
+  <p class="text-terracotta font-semibold tracking-widest text-xs uppercase mb-4">Unit usaha</p>
+  <h2 class="font-serif text-3xl md:text-4xl font-medium text-teal-dark max-w-xl">Tiga pilar usaha yang kami jalankan.</h2>
+
+  <div class="mt-14 grid md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-2xl p-8 border border-ink/10 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/5 transition">
+      <div class="w-11 h-11 rounded-full bg-teal-light flex items-center justify-center mb-6">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F4C3E" stroke-width="1.6"><path d="M12 3v18M5 8l7-5 7 5M5 8v11h14V8"/></svg>
+      </div>
+      <h3 class="font-serif text-xl font-medium text-teal-dark mb-2">Farmasi &amp; produk kesehatan</h3>
+      <p class="text-sm text-ink/65 leading-relaxed">Perancangan, produksi, distribusi, hingga ekspor-impor obat dan produk kesehatan bagi anggota dan masyarakat.</p>
+    </div>
+    <div class="bg-white rounded-2xl p-8 border border-ink/10 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/5 transition">
+      <div class="w-11 h-11 rounded-full bg-teal-light flex items-center justify-center mb-6">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F4C3E" stroke-width="1.6"><path d="M19 21V9l-7-5-7 5v12M9 21v-6h6v6"/></svg>
+      </div>
+      <h3 class="font-serif text-xl font-medium text-teal-dark mb-2">Fasilitas layanan kesehatan</h3>
+      <p class="text-sm text-ink/65 leading-relaxed">Perancangan, pendirian, dan pengoperasian rumah sakit, apotek, serta laboratorium klinik.</p>
+    </div>
+    <div class="bg-white rounded-2xl p-8 border border-ink/10 hover:border-teal/40 hover:shadow-lg hover:shadow-teal/5 transition">
+      <div class="w-11 h-11 rounded-full bg-teal-light flex items-center justify-center mb-6">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F4C3E" stroke-width="1.6"><path d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-4a4 4 0 100-8 4 4 0 000 8zm7 4a4 4 0 00-4-4"/></svg>
+      </div>
+      <h3 class="font-serif text-xl font-medium text-teal-dark mb-2">Kerja sama strategis</h3>
+      <p class="text-sm text-ink/65 leading-relaxed">Kolaborasi saling menguntungkan dengan pemerintah, BUMN/BUMD, dan mitra swasta di bidang kesehatan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STRUKTUR -->
+<section id="struktur" class="bg-creamdark">
+  <div class="max-w-6xl mx-auto px-6 py-24">
+    <p class="text-terracotta font-semibold tracking-widest text-xs uppercase mb-4">Struktur organisasi</p>
+    <h2 class="font-serif text-3xl md:text-4xl font-medium text-teal-dark max-w-xl">Pengurus masa bakti 2024–2027.</h2>
+
+    <div class="mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-cream rounded-2xl p-6 flex items-center gap-4 border border-ink/10">
+        <div class="w-14 h-14 rounded-full bg-teal-dark text-cream flex items-center justify-center font-serif text-lg shrink-0">ES</div>
+        <div>
+          <p class="font-medium text-teal-dark leading-snug">Dr. Erlang Samoedro, Sp.P(K), FISR</p>
+          <p class="text-xs text-ink/55 mt-0.5">Ketua</p>
+        </div>
+      </div>
+      <div class="bg-cream rounded-2xl p-6 flex items-center gap-4 border border-ink/10">
+        <div class="w-14 h-14 rounded-full bg-teal-dark text-cream flex items-center justify-center font-serif text-lg shrink-0">AR</div>
+        <div>
+          <p class="font-medium text-teal-dark leading-snug">DR. Dr. Arief Riadi Arifin, Sp.P(K), MARS</p>
+          <p class="text-xs text-ink/55 mt-0.5">Sekretaris</p>
+        </div>
+      </div>
+      <div class="bg-cream rounded-2xl p-6 flex items-center gap-4 border border-ink/10">
+        <div class="w-14 h-14 rounded-full bg-teal-dark text-cream flex items-center justify-center font-serif text-lg shrink-0">CY</div>
+        <div>
+          <p class="font-medium text-teal-dark leading-snug">Dr. Cut Yulia Indah Sari, Sp.P</p>
+          <p class="text-xs text-ink/55 mt-0.5">Bendahara</p>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="inline-block mt-10 text-teal font-medium hover:underline">Lihat susunan pengurus &amp; dewan pengawas lengkap →</a>
+  </div>
+</section>
+
+<!-- KEANGGOTAAN CTA -->
+<section id="keanggotaan" class="max-w-6xl mx-auto px-6 py-24">
+  <div class="bg-teal rounded-3xl px-8 md:px-16 py-16 text-center relative overflow-hidden">
+    <svg class="absolute -bottom-16 -left-16 opacity-10" width="300" height="300" viewBox="0 0 200 200" fill="none">
+      <circle cx="100" cy="100" r="95" stroke="#FAF6EC" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="70" stroke="#FAF6EC" stroke-width="0.5"/>
+    </svg>
+    <p class="text-terracotta-light font-semibold tracking-widest text-xs uppercase mb-4 relative">Keanggotaan</p>
+    <h2 class="font-serif text-3xl md:text-4xl font-medium text-cream max-w-2xl mx-auto relative">Setiap dokter spesialis paru anggota PDPI berhak bergabung.</h2>
+    <p class="text-cream/75 mt-5 max-w-xl mx-auto relative">Lengkapi formulir keanggotaan, lunasi simpanan pokok, dan jadilah bagian dari kesejahteraan bersama.</p>
+    <a href="#" class="inline-block mt-8 bg-terracotta text-cream px-8 py-3.5 rounded-full font-medium hover:bg-terracotta-dark transition relative">Ajukan Keanggotaan</a>
+  </div>
+</section>
+
+<!-- BERITA -->
+<section id="berita" class="bg-creamdark">
+  <div class="max-w-6xl mx-auto px-6 py-24">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-14">
+      <div>
+        <p class="text-terracotta font-semibold tracking-widest text-xs uppercase mb-4">Berita &amp; kegiatan</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-medium text-teal-dark">Kabar terbaru Kopaseba.</h2>
+      </div>
+      <a href="#" class="text-teal font-medium hover:underline">Lihat semua berita →</a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="bg-cream rounded-2xl overflow-hidden border border-ink/10">
+        <div class="h-40 bg-teal-light"></div>
+        <div class="p-6">
+          <p class="text-xs text-terracotta font-medium mb-2">01 Mar 2024</p>
+          <h3 class="font-serif text-lg text-teal-dark leading-snug">Pelantikan pengurus Kopaseba masa bakti 2024–2027</h3>
+        </div>
+      </article>
+      <article class="bg-cream rounded-2xl overflow-hidden border border-ink/10">
+        <div class="h-40 bg-terracotta-light"></div>
+        <div class="p-6">
+          <p class="text-xs text-terracotta font-medium mb-2">30 Sep 2023</p>
+          <h3 class="font-serif text-lg text-teal-dark leading-snug">Konferensi Kerja XVII PDPI bahas arah Kopaseba di Lampung</h3>
+        </div>
+      </article>
+      <article class="bg-cream rounded-2xl overflow-hidden border border-ink/10">
+        <div class="h-40 bg-teal-light"></div>
+        <div class="p-6">
+          <p class="text-xs text-terracotta font-medium mb-2">17 Nov 2023</p>
+          <h3 class="font-serif text-lg text-teal-dark leading-snug">Akta perubahan koperasi resmi terbit dari notaris</h3>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak" class="bg-teal-dark text-cream">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+    <div>
+      <span class="font-serif text-xl font-semibold">Kopaseba</span>
+      <p class="text-cream/60 text-sm mt-4 leading-relaxed">Koperasi Paru Sejahtera Bahagia — badan usaha milik Perhimpunan Dokter Paru Indonesia (PDPI).</p>
+    </div>
+    <div class="text-sm text-cream/70 leading-relaxed">
+      <p class="text-cream font-medium mb-3">Sekretariat</p>
+      <p>Rumah PDPI, Jl. Cipinang Baru Bunder No. 19<br>RT 006 RW 001, Kel. Cipinang, Kec. Pulogadung<br>Jakarta Timur, DKI Jakarta</p>
+    </div>
+    <div class="text-sm text-cream/70 leading-relaxed">
+      <p class="text-cream font-medium mb-3">Kontak</p>
+      <p>kopaseba@yahoo.com</p>
+      <div class="flex gap-4 mt-5">
+        <a href="#" class="w-9 h-9 rounded-full border border-cream/25 flex items-center justify-center hover:border-cream/60 transition text-xs">IG</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-cream/25 flex items-center justify-center hover:border-cream/60 transition text-xs">WA</a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-center text-xs text-cream/45">
+    © 2026 Koperasi Paru Sejahtera Bahagia (KOPASEBA). Seluruh hak cipta dilindungi.
+  </div>
+</footer>
+
+</body>
+</html>

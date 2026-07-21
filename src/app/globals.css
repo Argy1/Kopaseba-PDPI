@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #F7F6F2;
+  --color-paper-dark: #EEECE3;
+  --color-ink: #16202B;
+  --color-navy: #14335C;
+  --color-navy-dark: #0D2440;
+  --color-navy-light: #E7EEF7;
+  --color-sky: #1F5FA8;
+  --color-sky-light: #EAF2FB;
+  --color-gold: #B8923F;
+  --color-gold-dark: #8F701F;
+  --color-gold-light: #F3E8CE;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-dark: var(--color-paper-dark);
+  --color-ink: var(--color-ink);
+  --color-navy: var(--color-navy);
+  --color-navy-dark: var(--color-navy-dark);
+  --color-navy-light: var(--color-navy-light);
+  --color-sky: var(--color-sky);
+  --color-sky-light: var(--color-sky-light);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-light: var(--color-gold-light);
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.07; }
+  50% { transform: scale(1.045); opacity: 0.13; }
+}
+.breathe-motif {
+  animation: breathe 7s ease-in-out infinite;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .breathe-motif { animation: none; opacity: 0.09; }
+}
