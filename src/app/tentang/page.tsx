@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Tentang Kami — Kopaseba",
+  description:
+    "Sejarah, landasan, azas, dan tujuan Koperasi Paru Sejahtera Bahagia (KOPASEBA).",
+};
 
 export default function TentangPage() {
   return (

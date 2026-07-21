@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { kontak } from "@/data/content";
+
+export const metadata: Metadata = {
+  title: "Kontak — Kopaseba",
+  description: "Alamat sekretariat dan email resmi Koperasi Paru Sejahtera Bahagia.",
+};
 
 export default function KontakPage() {
   return (

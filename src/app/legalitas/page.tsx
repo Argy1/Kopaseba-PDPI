@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { legalitas } from "@/data/content";
+
+export const metadata: Metadata = {
+  title: "Legalitas & Dokumen — Kopaseba",
+  description: "Dokumen legal resmi KOPASEBA: Akta, SK Kemenkumham, dan AD/ART.",
+};
 
 export default function LegalitasPage() {
   return (

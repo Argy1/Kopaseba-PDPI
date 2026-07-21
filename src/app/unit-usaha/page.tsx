@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import { mitraKerjasama, unitUsaha } from "@/data/content";
+
+export const metadata: Metadata = {
+  title: "Unit Usaha & Mitra — Kopaseba",
+  description:
+    "Tiga pilar usaha KOPASEBA di bidang kesehatan dan mitra kerjasama yang berjalan.",
+};
 
 export default function UnitUsahaPage() {
   return (

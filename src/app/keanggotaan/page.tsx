@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import {
   hakAnggota,
@@ -5,6 +6,12 @@ import {
   prosedurPendaftaran,
   syaratAnggota,
 } from "@/data/content";
+
+export const metadata: Metadata = {
+  title: "Keanggotaan — Kopaseba",
+  description:
+    "Syarat, hak, kewajiban, dan prosedur pendaftaran anggota KOPASEBA bagi dokter spesialis paru anggota PDPI.",
+};
 
 export default function KeanggotaanPage() {
   return (

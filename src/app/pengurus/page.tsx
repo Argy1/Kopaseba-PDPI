@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PersonPhoto from "@/components/PersonPhoto";
 import PageHeader from "@/components/PageHeader";
 import {
@@ -6,6 +7,12 @@ import {
   pimpinanUtama,
   sekretariat,
 } from "@/data/content";
+
+export const metadata: Metadata = {
+  title: "Struktur Organisasi — Kopaseba",
+  description:
+    "Susunan Dewan Pengawas, Pengurus, dan Sekretariat KOPASEBA masa bakti 2024–2027.",
+};
 
 export default function PengurusPage() {
   return (

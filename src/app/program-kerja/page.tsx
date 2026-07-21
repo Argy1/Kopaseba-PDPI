@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { programKerja } from "@/data/content";
+
+export const metadata: Metadata = {
+  title: "Program Kerja — Kopaseba",
+  description: "Program kerja jangka pendek dan panjang KOPASEBA periode 2024–2027.",
+};
 
 export default function ProgramKerjaPage() {
   return (
