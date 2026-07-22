@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --color-paper: #F7F6F2;
@@ -12,6 +16,38 @@
   --color-gold: #B8923F;
   --color-gold-dark: #8F701F;
   --color-gold-light: #F3E8CE;
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --card: #FFFFFF;
+  --card-foreground: var(--color-ink);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-navy);
+  --primary-foreground: var(--color-paper);
+  --secondary: var(--color-sky-light);
+  --secondary-foreground: var(--color-navy);
+  --muted: var(--color-paper-dark);
+  --muted-foreground: #5B6672;
+  --accent: var(--color-gold-light);
+  --accent-foreground: var(--color-gold-dark);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--color-paper-dark);
+  --input: var(--color-paper-dark);
+  --ring: var(--color-sky);
+  --chart-1: var(--color-navy);
+  --chart-2: var(--color-gold);
+  --chart-3: var(--color-sky);
+  --chart-4: var(--color-gold-dark);
+  --chart-5: var(--color-navy-light);
+  --radius: 0.625rem;
+  --sidebar: var(--color-navy-dark);
+  --sidebar-foreground: var(--color-paper);
+  --sidebar-primary: var(--color-gold);
+  --sidebar-primary-foreground: var(--color-navy-dark);
+  --sidebar-accent: var(--color-navy);
+  --sidebar-accent-foreground: var(--color-paper);
+  --sidebar-border: rgba(247, 246, 242, 0.12);
+  --sidebar-ring: var(--color-gold);
 }
 
 @theme inline {
@@ -28,6 +64,45 @@
   --color-gold-light: var(--color-gold-light);
   --font-serif: "Fraunces", serif;
   --font-sans: "Inter", sans-serif;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 body {
@@ -46,4 +121,50 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
   .breathe-motif { animation: none; opacity: 0.09; }
+}
+
+.dark {
+  --background: var(--color-navy-dark);
+  --foreground: var(--color-paper);
+  --card: var(--color-navy);
+  --card-foreground: var(--color-paper);
+  --popover: var(--color-navy);
+  --popover-foreground: var(--color-paper);
+  --primary: var(--color-gold);
+  --primary-foreground: var(--color-navy-dark);
+  --secondary: var(--color-navy);
+  --secondary-foreground: var(--color-paper);
+  --muted: var(--color-navy);
+  --muted-foreground: rgba(247, 246, 242, 0.6);
+  --accent: var(--color-gold-dark);
+  --accent-foreground: var(--color-paper);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgba(247, 246, 242, 0.12);
+  --input: rgba(247, 246, 242, 0.15);
+  --ring: var(--color-gold);
+  --chart-1: var(--color-gold);
+  --chart-2: var(--color-sky);
+  --chart-3: var(--color-gold-light);
+  --chart-4: var(--color-sky-light);
+  --chart-5: var(--color-navy-light);
+  --sidebar: var(--color-navy-dark);
+  --sidebar-foreground: var(--color-paper);
+  --sidebar-primary: var(--color-gold);
+  --sidebar-primary-foreground: var(--color-navy-dark);
+  --sidebar-accent: var(--color-navy);
+  --sidebar-accent-foreground: var(--color-paper);
+  --sidebar-border: rgba(247, 246, 242, 0.12);
+  --sidebar-ring: var(--color-gold);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
 }

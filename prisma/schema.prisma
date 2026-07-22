@@ -1,0 +1,207 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+// ─────────────────────────────────────────────────────────
+// Auth
+// ─────────────────────────────────────────────────────────
+
+model User {
+  id                  Int       @id @default(autoincrement())
+  email               String    @unique
+  name                String
+  passwordHash        String
+  sessionVersion      Int       @default(0)
+  failedLoginAttempts Int       @default(0)
+  lockedUntil         DateTime?
+  lastLoginAt         DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  mediaUploaded Media[]
+}
+
+// ─────────────────────────────────────────────────────────
+// Generic media blob storage (katalog photos, pengurus photos)
+// ─────────────────────────────────────────────────────────
+
+model Media {
+  id           Int      @id @default(autoincrement())
+  filename     String
+  mimeType     String
+  size         Int
+  width        Int?
+  height       Int?
+  alt          String?
+  data         Bytes    @db.LongBlob
+  uploadedById Int?
+  uploadedBy   User?    @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  createdAt    DateTime @default(now())
+
+  katalogItems KatalogItem[]
+  pengurus     Pengurus[]
+}
+
+// ─────────────────────────────────────────────────────────
+// Katalog
+// ─────────────────────────────────────────────────────────
+
+enum KatalogKategori {
+  PRODUK_MITRA
+  LAYANAN_UNIT_USAHA
+}
+
+model KatalogItem {
+  id                  Int             @id @default(autoincrement())
+  kategori            KatalogKategori
+  nama                String
+  slug                String          @unique
+  mitraNama           String?
+  ringkasan           String          @db.Text
+  deskripsi           String          @db.Text
+  komposisi           String?         @db.Text
+  wilayahKetersediaan String?
+  harga               Decimal?        @db.Decimal(14, 2)
+  tampilkanHarga      Boolean         @default(false)
+  imageMediaId        Int?
+  image               Media?          @relation(fields: [imageMediaId], references: [id], onDelete: SetNull)
+  published           Boolean         @default(true)
+  urutan              Int             @default(0)
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+
+  @@index([kategori, published])
+}
+
+// ─────────────────────────────────────────────────────────
+// Pengurus (menyatukan pimpinanUtama / dewanPengawas / anggotaPengurus / sekretariat)
+// ─────────────────────────────────────────────────────────
+
+enum PengurusKategori {
+  PIMPINAN
+  DEWAN_PENGAWAS
+  ANGGOTA
+  SEKRETARIAT
+}
+
+model Pengurus {
+  id          Int              @id @default(autoincrement())
+  kategori    PengurusKategori
+  nama        String
+  jabatan     String?
+  fotoMediaId Int?
+  foto        Media?           @relation(fields: [fotoMediaId], references: [id], onDelete: SetNull)
+  urutan      Int              @default(0)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([kategori, urutan])
+}
+
+// ─────────────────────────────────────────────────────────
+// /unit-usaha overview pillar cards (editorial, terpisah dari Katalog)
+// ─────────────────────────────────────────────────────────
+
+model UnitUsahaPillar {
+  id        Int      @id @default(autoincrement())
+  judul     String
+  deskripsi String   @db.Text
+  urutan    Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model StrukturTambahan {
+  id        Int      @id @default(autoincrement())
+  nama      String
+  babPasal  String
+  deskripsi String   @db.Text
+  urutan    Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LegalitasDoc {
+  id         Int      @id @default(autoincrement())
+  judul      String
+  keterangan String   @db.Text
+  pasal      String?  @db.Text
+  catatan    String?  @db.Text
+  urutan     Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model SejarahTimeline {
+  id        Int      @id @default(autoincrement())
+  tahun     String
+  tanggal   String?
+  judul     String
+  deskripsi String   @db.Text
+  urutan    Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model KeanggotaanFAQ {
+  id         Int      @id @default(autoincrement())
+  pertanyaan String
+  jawaban    String   @db.Text
+  urutan     Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// ─────────────────────────────────────────────────────────
+// Polymorphic plain-string-list content (syarat/hak/kewajiban/
+// prosedur, landasan-prinsip, fungsi-peran, program kerja lists)
+// ─────────────────────────────────────────────────────────
+
+enum ListSection {
+  SYARAT_ANGGOTA
+  HAK_ANGGOTA
+  KEWAJIBAN_ANGGOTA
+  PROSEDUR_PENDAFTARAN
+  LANDASAN_PRINSIP
+  FUNGSI_PERAN
+  PROGRAM_JANGKA_PENDEK
+  PROGRAM_JANGKA_PANJANG
+  PROGRAM_SKEMA_BAGI_HASIL_POIN
+}
+
+model ListItem {
+  id        Int         @id @default(autoincrement())
+  section   ListSection
+  teks      String      @db.Text
+  urutan    Int         @default(0)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([section, urutan])
+}
+
+// ─────────────────────────────────────────────────────────
+// Singleton settings row (kontak, tentang prose, program-kerja prose)
+// ─────────────────────────────────────────────────────────
+
+model SiteSettings {
+  id                                     Int      @id @default(1)
+  kontakAlamat                           String   @db.Text
+  kontakEmail                            String
+  kontakMapEmbedUrl                      String   @db.Text
+  landasan                               String   @db.Text
+  asas                                   String   @db.Text
+  tujuanKoperasi                         String   @db.Text
+  programKerjaSkemaBagiHasilJudul        String
+  programKerjaPengembanganObatJudul      String
+  programKerjaPengembanganObatDeskripsi  String   @db.Text
+  updatedAt                              DateTime @updatedAt
+}

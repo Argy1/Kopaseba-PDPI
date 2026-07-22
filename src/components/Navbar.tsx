@@ -1,8 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { nav } from "@/data/content";
+
+const navPrimary = [
+  { label: "Beranda", href: "/" },
+  { label: "Katalog", href: "/katalog" },
+  { label: "Unit Usaha", href: "/unit-usaha" },
+  { label: "Tentang", href: "/tentang" },
+  { label: "Kontak", href: "/kontak" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -10,24 +18,27 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-ink/10">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="19" stroke="#14335C" strokeWidth="1.5" />
-            <path
-              d="M20 10c-4 3-6 7-6 11a6 6 0 0012 0c0-4-2-8-6-11z"
-              stroke="#B8923F"
-              strokeWidth="1.5"
-              fill="none"
-            />
-            <path d="M20 21v9" stroke="#14335C" strokeWidth="1.5" />
-          </svg>
-          <span className="font-serif text-xl font-semibold tracking-tight text-navy">
-            Kopaseba
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            src="/logo-kopaseba.jpeg"
+            alt="Lambang Koperasi Indonesia"
+            width={910}
+            height={999}
+            className="h-10 w-auto"
+            priority
+          />
+          <span className="flex flex-col justify-center">
+            <span className="font-serif text-xl font-semibold uppercase tracking-tight text-navy leading-none">
+              Kopaseba
+            </span>
+            <span className="text-[10px] font-medium uppercase tracking-wider text-ink/45 mt-1">
+              Koperasi Paru Sejahtera Bahagia
+            </span>
           </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-ink/70">
-          {nav.map((item) => (
+          {navPrimary.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-navy transition">
               {item.label}
             </Link>
@@ -36,10 +47,10 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/keanggotaan"
+            href="/admin/login"
             className="hidden sm:inline-block bg-navy text-paper text-sm font-medium px-5 py-2.5 rounded-full hover:bg-navy-dark transition"
           >
-            Gabung Jadi Anggota
+            Login
           </Link>
           <button
             aria-label="Buka menu"
@@ -53,7 +64,7 @@ export default function Navbar() {
 
       {open && (
         <nav className="lg:hidden border-t border-ink/10 bg-paper px-6 py-4 flex flex-col gap-4 text-sm font-medium text-ink/70">
-          {nav.map((item) => (
+          {navPrimary.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -63,6 +74,13 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/admin/login"
+            className="sm:hidden text-navy font-semibold hover:text-navy-dark transition"
+            onClick={() => setOpen(false)}
+          >
+            Login
+          </Link>
         </nav>
       )}
     </header>

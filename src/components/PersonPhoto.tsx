@@ -1,18 +1,39 @@
+import Image from "next/image";
+
 export default function PersonPhoto({
+  src,
+  alt,
   size = "md",
   tone = "navy",
 }: {
+  src?: string | null;
+  alt?: string;
   size?: "sm" | "md";
   tone?: "navy" | "light";
 }) {
   const isLight = tone === "light";
+
+  if (src) {
+    return (
+      <div className="aspect-4/5 rounded-2xl overflow-hidden relative border border-ink/10">
+        <Image
+          src={src}
+          alt={alt ?? ""}
+          fill
+          loading="eager"
+          className="object-cover"
+          sizes="(min-width: 768px) 33vw, 100vw"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
-      className={`aspect-[4/5] rounded-2xl overflow-hidden relative flex items-center justify-center border ${
+      className={`aspect-4/5 rounded-2xl overflow-hidden relative flex items-center justify-center border ${
         isLight ? "bg-navy-light border-ink/10" : "bg-navy-light/10 border-paper/15"
       }`}
     >
-      {/* placeholder — ganti dengan <Image src="/pengurus/nama.jpg" fill alt="..." /> saat foto tersedia */}
       <svg
         width={size === "sm" ? "40" : "72"}
         height={size === "sm" ? "40" : "72"}

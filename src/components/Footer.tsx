@@ -1,12 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
-import { kontak, nav } from "@/data/content";
+import { nav } from "@/data/content";
+import { prisma } from "@/lib/prisma";
 
-export default function Footer() {
+export default async function Footer() {
+  const settings = await prisma.siteSettings.findUniqueOrThrow({ where: { id: 1 } });
+
   return (
     <footer className="bg-navy-dark text-paper">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
         <div>
-          <span className="font-serif text-xl font-semibold">Kopaseba</span>
+          <div className="flex items-center gap-2.5">
+            <Image
+              src="/logo-kopaseba.jpeg"
+              alt="Lambang Koperasi Indonesia"
+              width={910}
+              height={999}
+              className="h-8 w-auto rounded-sm"
+            />
+            <span className="font-serif text-xl font-semibold">Kopaseba</span>
+          </div>
           <p className="text-paper/60 text-sm mt-4 leading-relaxed">
             Koperasi Paru Sejahtera Bahagia — badan usaha milik Perhimpunan Dokter
             Paru Indonesia (PDPI).
@@ -21,11 +34,11 @@ export default function Footer() {
         </div>
         <div className="text-sm text-paper/70 leading-relaxed">
           <p className="text-paper font-medium mb-3">Sekretariat</p>
-          <p>{kontak.alamat}</p>
+          <p>{settings.kontakAlamat}</p>
         </div>
         <div className="text-sm text-paper/70 leading-relaxed">
           <p className="text-paper font-medium mb-3">Kontak</p>
-          <p>{kontak.email}</p>
+          <p>{settings.kontakEmail}</p>
           <div className="flex gap-4 mt-5">
             <a
               href="#"
