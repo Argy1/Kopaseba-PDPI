@@ -21,13 +21,25 @@ export default async function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden">
-        {/* WATERMARK LAMBANG KOPASEBA */}
+        {/* WATERMARK LAMBANG KOPASEBA — pojok kanan atas */}
         <div
           aria-hidden
           className="pointer-events-none select-none absolute -top-10 -right-16 w-105 md:w-160 aspect-910/800 opacity-20 rotate-6"
           style={{
-            maskImage: "linear-gradient(135deg, black 45%, transparent 92%)",
-            WebkitMaskImage: "linear-gradient(135deg, black 45%, transparent 92%)",
+            maskImage: "radial-gradient(circle at 100% 0%, black 35%, transparent 78%)",
+            WebkitMaskImage: "radial-gradient(circle at 100% 0%, black 35%, transparent 78%)",
+          }}
+        >
+          <Image src="/logo-kopaseba.jpeg" alt="" fill className="object-cover object-top" />
+        </div>
+
+        {/* WATERMARK LAMBANG KOPASEBA — pojok kiri bawah (penyeimbang) */}
+        <div
+          aria-hidden
+          className="pointer-events-none select-none absolute -bottom-12 -left-16 w-70 md:w-110 aspect-910/800 opacity-15 -rotate-6 -scale-x-100"
+          style={{
+            maskImage: "radial-gradient(circle at 0% 100%, black 35%, transparent 78%)",
+            WebkitMaskImage: "radial-gradient(circle at 0% 100%, black 35%, transparent 78%)",
           }}
         >
           <Image src="/logo-kopaseba.jpeg" alt="" fill className="object-cover object-top" />
@@ -68,9 +80,9 @@ export default async function Home() {
             {ketua && (
               <div className="relative mx-auto lg:mx-0 shrink-0">
                 <svg
-                  className="breathe-motif absolute -top-14 -right-14 pointer-events-none opacity-80"
-                  width="340"
-                  height="340"
+                  className="breathe-motif absolute -top-16 -right-16 pointer-events-none opacity-80"
+                  width="400"
+                  height="400"
                   viewBox="0 0 200 200"
                   fill="none"
                 >
@@ -89,26 +101,26 @@ export default async function Home() {
                 </svg>
 
                 {/* glow gradasi lembut di belakang */}
-                <div className="absolute -inset-8 rounded-full bg-linear-to-br from-gold/45 via-sky/20 to-navy/45 blur-2xl" />
+                <div className="absolute -inset-9 rounded-full bg-linear-to-br from-gold/45 via-sky/20 to-navy/45 blur-2xl" />
 
                 {/* cincin gradasi + foto lingkaran */}
-                <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full p-1 bg-linear-to-br from-gold via-sky to-navy shadow-xl shadow-navy/25">
-                  <div className="w-full h-full rounded-full bg-paper p-1.5">
+                <div className="relative w-68 h-68 md:w-84 md:h-84 rounded-full p-1.5 bg-linear-to-br from-gold via-sky to-navy shadow-xl shadow-navy/25">
+                  <div className="w-full h-full rounded-full bg-paper p-2">
                     <div className="relative w-full h-full rounded-full overflow-hidden bg-navy-light">
                       <Image
                         src="/ketua-kopaseba-hero.jpg"
                         alt={ketua.nama}
                         fill
                         className="object-cover object-[50%_12%]"
-                        sizes="256px"
+                        sizes="(min-width: 768px) 336px, 272px"
                         priority
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="relative mt-5 text-center">
-                  <p className="font-serif text-sm font-medium text-navy leading-snug">{ketua.nama}</p>
+                <div className="relative mt-6 text-center">
+                  <p className="font-serif text-base font-medium text-navy leading-snug">{ketua.nama}</p>
                   <p className="text-xs text-gold-dark uppercase tracking-wide mt-1">{ketua.jabatan} Kopaseba</p>
                 </div>
               </div>
