@@ -115,22 +115,38 @@ export default async function Home() {
             )}
           </div>
 
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-ink/10 pt-10">
-            <div>
-              <p className="font-serif text-3xl text-navy">2011</p>
-              <p className="text-sm text-ink/60 mt-1">Tahun berdiri</p>
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 border-t border-ink/10 pt-10">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 shrink-0 rounded-full bg-navy-light flex items-center justify-center">
+                <span className="font-serif text-lg font-semibold text-navy">2011</span>
+              </div>
+              <p className="text-sm text-ink/60 leading-snug">Tahun berdiri</p>
             </div>
-            <div>
-              <p className="font-serif text-3xl text-navy">34+</p>
-              <p className="text-sm text-ink/60 mt-1">Pengurus &amp; pengawas aktif</p>
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 shrink-0 rounded-full bg-gold-light flex items-center justify-center">
+                <span className="font-serif text-lg font-semibold text-gold-dark">34+</span>
+              </div>
+              <p className="text-sm text-ink/60 leading-snug">Pengurus &amp; pengawas aktif</p>
             </div>
-            <div>
-              <p className="font-serif text-3xl text-navy">2024–27</p>
-              <p className="text-sm text-ink/60 mt-1">Periode kepengurusan berjalan</p>
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 shrink-0 rounded-full bg-sky-light flex items-center justify-center">
+                <span className="font-serif text-base font-semibold text-sky">24–27</span>
+              </div>
+              <p className="text-sm text-ink/60 leading-snug">Periode kepengurusan 2024–2027</p>
             </div>
-            <div>
-              <p className="font-serif text-3xl text-navy">Badan hukum</p>
-              <p className="text-sm text-ink/60 mt-1">Terdaftar resmi Kemenkumham RI</p>
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 shrink-0 rounded-full bg-navy-light flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 12.5l5 5L20 7"
+                    stroke="#14335C"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <p className="text-sm text-ink/60 leading-snug">Badan hukum terdaftar resmi Kemenkumham RI</p>
             </div>
           </div>
         </div>
