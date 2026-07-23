@@ -24,10 +24,10 @@ export default async function Home() {
         {/* WATERMARK LAMBANG KOPASEBA */}
         <div
           aria-hidden
-          className="pointer-events-none select-none absolute -top-16 -right-24 w-95 md:w-140 aspect-910/800 opacity-[0.07] grayscale rotate-6"
+          className="pointer-events-none select-none absolute -top-10 -right-16 w-105 md:w-160 aspect-910/800 opacity-20 rotate-6"
           style={{
-            maskImage: "linear-gradient(135deg, black 20%, transparent 78%)",
-            WebkitMaskImage: "linear-gradient(135deg, black 20%, transparent 78%)",
+            maskImage: "linear-gradient(135deg, black 45%, transparent 92%)",
+            WebkitMaskImage: "linear-gradient(135deg, black 45%, transparent 92%)",
           }}
         >
           <Image src="/logo-kopaseba.jpeg" alt="" fill className="object-cover object-top" />
