@@ -79,56 +79,6 @@ export default async function Home() {
             {/* FOTO UNGGULAN KETUA */}
             {ketua && (
               <div className="relative mx-auto lg:mx-0 shrink-0">
-                {/* aksen busur gradasi di sisi kiri foto */}
-                <div
-                  aria-hidden
-                  className="absolute top-1/2 -left-20 md:-left-28 -translate-y-1/2 w-48 h-72 md:w-56 md:h-84 pointer-events-none select-none"
-                >
-                  <svg
-                    className="breathe-motif absolute inset-0 blur-md opacity-70"
-                    viewBox="0 0 200 300"
-                    fill="none"
-                  >
-                    <defs>
-                      <linearGradient id="heroArcGlow" x1="50%" y1="0%" x2="50%" y2="100%">
-                        <stop offset="0%" stopColor="#8F701F" />
-                        <stop offset="45%" stopColor="#B8923F" />
-                        <stop offset="75%" stopColor="#1F5FA8" />
-                        <stop offset="100%" stopColor="#14335C" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M150,20 C60,35 30,110 30,160 C30,210 60,285 150,300"
-                      stroke="url(#heroArcGlow)"
-                      strokeWidth="10"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <svg className="absolute inset-0" viewBox="0 0 200 300" fill="none">
-                    <defs>
-                      <linearGradient id="heroArcGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-                        <stop offset="0%" stopColor="#8F701F" />
-                        <stop offset="45%" stopColor="#B8923F" />
-                        <stop offset="75%" stopColor="#1F5FA8" />
-                        <stop offset="100%" stopColor="#14335C" />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M150,20 C60,35 30,110 30,160"
-                      stroke="url(#heroArcGradient)"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M30,160 C30,210 60,285 150,300"
-                      stroke="url(#heroArcGradient)"
-                      strokeWidth="4.5"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="150" cy="20" r="4" fill="#B8923F" />
-                  </svg>
-                </div>
-
                 <svg
                   className="breathe-motif absolute -top-16 -right-16 pointer-events-none opacity-80"
                   width="400"
