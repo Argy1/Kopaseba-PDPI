@@ -79,6 +79,56 @@ export default async function Home() {
             {/* FOTO UNGGULAN KETUA */}
             {ketua && (
               <div className="relative mx-auto lg:mx-0 shrink-0">
+                {/* aksen busur gradasi di sisi kiri foto */}
+                <div
+                  aria-hidden
+                  className="absolute top-1/2 -left-20 md:-left-28 -translate-y-1/2 w-48 h-72 md:w-56 md:h-84 pointer-events-none select-none"
+                >
+                  <svg
+                    className="breathe-motif absolute inset-0 blur-md opacity-70"
+                    viewBox="0 0 200 300"
+                    fill="none"
+                  >
+                    <defs>
+                      <linearGradient id="heroArcGlow" x1="50%" y1="0%" x2="50%" y2="100%">
+                        <stop offset="0%" stopColor="#8F701F" />
+                        <stop offset="45%" stopColor="#B8923F" />
+                        <stop offset="75%" stopColor="#1F5FA8" />
+                        <stop offset="100%" stopColor="#14335C" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M150,20 C60,35 30,110 30,160 C30,210 60,285 150,300"
+                      stroke="url(#heroArcGlow)"
+                      strokeWidth="10"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <svg className="absolute inset-0" viewBox="0 0 200 300" fill="none">
+                    <defs>
+                      <linearGradient id="heroArcGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+                        <stop offset="0%" stopColor="#8F701F" />
+                        <stop offset="45%" stopColor="#B8923F" />
+                        <stop offset="75%" stopColor="#1F5FA8" />
+                        <stop offset="100%" stopColor="#14335C" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M150,20 C60,35 30,110 30,160"
+                      stroke="url(#heroArcGradient)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M30,160 C30,210 60,285 150,300"
+                      stroke="url(#heroArcGradient)"
+                      strokeWidth="4.5"
+                      strokeLinecap="round"
+                    />
+                    <circle cx="150" cy="20" r="4" fill="#B8923F" />
+                  </svg>
+                </div>
+
                 <svg
                   className="breathe-motif absolute -top-16 -right-16 pointer-events-none opacity-80"
                   width="400"
@@ -101,25 +151,25 @@ export default async function Home() {
                 </svg>
 
                 {/* glow gradasi lembut di belakang */}
-                <div className="absolute -inset-9 rounded-full bg-linear-to-br from-gold/45 via-sky/20 to-navy/45 blur-2xl" />
+                <div className="absolute -inset-10 rounded-full bg-linear-to-br from-gold/45 via-sky/20 to-navy/45 blur-2xl" />
 
                 {/* cincin gradasi + foto lingkaran */}
-                <div className="relative w-68 h-68 md:w-84 md:h-84 rounded-full p-1.5 bg-linear-to-br from-gold via-sky to-navy shadow-xl shadow-navy/25">
-                  <div className="w-full h-full rounded-full bg-paper p-2">
+                <div className="relative w-76 h-76 md:w-96 md:h-96 rounded-full p-2 bg-linear-to-br from-gold via-sky to-navy shadow-xl shadow-navy/25">
+                  <div className="w-full h-full rounded-full bg-paper p-2.5">
                     <div className="relative w-full h-full rounded-full overflow-hidden bg-navy-light">
                       <Image
                         src="/ketua-kopaseba-hero.jpg"
                         alt={ketua.nama}
                         fill
                         className="object-cover object-[50%_12%]"
-                        sizes="(min-width: 768px) 336px, 272px"
+                        sizes="(min-width: 768px) 384px, 304px"
                         priority
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="relative mt-6 text-center">
+                <div className="relative mt-7 text-center">
                   <p className="font-serif text-base font-medium text-navy leading-snug">{ketua.nama}</p>
                   <p className="text-xs text-gold-dark uppercase tracking-wide mt-1">{ketua.jabatan} Kopaseba</p>
                 </div>
