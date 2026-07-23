@@ -21,6 +21,18 @@ export default async function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden">
+        {/* WATERMARK LAMBANG KOPASEBA */}
+        <div
+          aria-hidden
+          className="pointer-events-none select-none absolute -top-16 -right-24 w-95 md:w-140 aspect-910/800 opacity-[0.07] grayscale rotate-6"
+          style={{
+            maskImage: "linear-gradient(135deg, black 20%, transparent 78%)",
+            WebkitMaskImage: "linear-gradient(135deg, black 20%, transparent 78%)",
+          }}
+        >
+          <Image src="/logo-kopaseba.jpeg" alt="" fill className="object-cover object-top" />
+        </div>
+
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-24 relative">
           <div className="flex flex-col lg:flex-row lg:items-center gap-14 lg:gap-16">
             <div className="max-w-2xl">
@@ -54,11 +66,11 @@ export default async function Home() {
 
             {/* FOTO UNGGULAN KETUA */}
             {ketua && (
-              <div className="relative mx-auto lg:mx-0 shrink-0 w-full max-w-65">
+              <div className="relative mx-auto lg:mx-0 shrink-0">
                 <svg
-                  className="breathe-motif absolute -top-16 -right-16 pointer-events-none opacity-80"
-                  width="380"
-                  height="380"
+                  className="breathe-motif absolute -top-14 -right-14 pointer-events-none opacity-80"
+                  width="340"
+                  height="340"
                   viewBox="0 0 200 200"
                   fill="none"
                 >
@@ -76,25 +88,28 @@ export default async function Home() {
                   <circle cx="100" cy="100" r="95" stroke="#B8923F" strokeWidth="0.5" />
                 </svg>
 
-                {/* bingkai luar (offset, dekoratif) */}
-                <div className="absolute inset-0 translate-x-3.5 translate-y-3.5 rounded-[1.75rem] border-2 border-gold/50" />
+                {/* glow gradasi lembut di belakang */}
+                <div className="absolute -inset-8 rounded-full bg-linear-to-br from-gold/45 via-sky/20 to-navy/45 blur-2xl" />
 
-                {/* kartu bingkai foto */}
-                <div className="relative bg-white rounded-[1.75rem] p-2.5 shadow-2xl shadow-navy/15 border border-ink/5">
-                  <div className="aspect-2/3 rounded-2xl overflow-hidden relative bg-navy-light">
-                    <Image
-                      src="/ketua-kopaseba-hero.jpg"
-                      alt={ketua.nama}
-                      fill
-                      className="object-cover"
-                      sizes="260px"
-                      priority
-                    />
+                {/* cincin gradasi + foto lingkaran */}
+                <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full p-1 bg-linear-to-br from-gold via-sky to-navy shadow-xl shadow-navy/25">
+                  <div className="w-full h-full rounded-full bg-paper p-1.5">
+                    <div className="relative w-full h-full rounded-full overflow-hidden bg-navy-light">
+                      <Image
+                        src="/ketua-kopaseba-hero.jpg"
+                        alt={ketua.nama}
+                        fill
+                        className="object-cover object-[50%_12%]"
+                        sizes="256px"
+                        priority
+                      />
+                    </div>
                   </div>
-                  <div className="pt-4 pb-1.5 text-center px-1">
-                    <p className="font-serif text-sm font-medium text-navy leading-snug">{ketua.nama}</p>
-                    <p className="text-xs text-gold-dark uppercase tracking-wide mt-1">{ketua.jabatan} Kopaseba</p>
-                  </div>
+                </div>
+
+                <div className="relative mt-5 text-center">
+                  <p className="font-serif text-sm font-medium text-navy leading-snug">{ketua.nama}</p>
+                  <p className="text-xs text-gold-dark uppercase tracking-wide mt-1">{ketua.jabatan} Kopaseba</p>
                 </div>
               </div>
             )}
